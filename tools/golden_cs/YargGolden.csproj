@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Golden reference tool: dumps charts with the real YARG.Core (same target as YARG.Core's own tests). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <!-- Path to a YARG.Core checkout (repository root). CI clones it into ext/YARG.Core. -->
+    <YargCoreDir Condition="'$(YargCoreDir)' == ''">$(MSBuildThisFileDirectory)../../ext/YARG.Core</YargCoreDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(YargCoreDir)/YARG.Core/YARG.Core.csproj" />
+  </ItemGroup>
+
+</Project>
